@@ -7,6 +7,7 @@ import { CTASection } from "@/components/home/cta-section";
 import { MainNav } from "@/components/navigation/main-nav";
 import { SiteFooter } from "@/components/navigation/site-footer";
 import BrandShowcase from "@/components/home/brand-showcase";
+import { SignedIn, SignedOut, SignIn, SignOutButton, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   
@@ -17,18 +18,24 @@ export default function Home() {
           <MainNav />
           <div className="flex flex-1 items-center justify-end space-x-4 pr-10">
             <nav className="flex items-center space-x-4">
-              <Link
-                href="/login"
-                className={buttonVariants({ variant: "outline", size: "sm" })}
-              >
-                Login
-              </Link>
-              <Link
-                href="/register"
+              <SignedOut>
+                <Link
+                href="/sign-in"
                 className={buttonVariants({ size: "sm" })}
               >
                 Register
               </Link>
+              <Link
+                href="/sign-up"
+                className={buttonVariants({ size: "sm"})}
+                >
+                  SignUp
+                </Link>
+              </SignedOut>
+             <SignedIn >
+              <UserButton />
+              <SignOutButton/>
+             </SignedIn>
             </nav>
           </div>
         </div>
