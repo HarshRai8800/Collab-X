@@ -43,7 +43,20 @@ export function HeroSection() {
       opacity: 0.8
     })
     
-    const spherePositions = []
+    interface SphereVelocity {
+      x: number
+      y: number
+      z: number
+    }
+
+    interface SpherePosition {
+      x: number
+      y: number
+      z: number
+      velocity: SphereVelocity
+    }
+
+    const spherePositions: SpherePosition[] = []
     const sphereCount = 15
     
     for (let i = 0; i < sphereCount; i++) {
