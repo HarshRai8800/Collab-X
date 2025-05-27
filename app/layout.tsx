@@ -13,6 +13,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+import Navbar from '@/components/navbar/navabr';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Navbar/>
             {children}
             <Toaster />
             <Suspense fallback={null}>

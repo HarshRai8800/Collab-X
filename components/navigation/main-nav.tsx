@@ -36,7 +36,7 @@ export function MainNav() {
           About
         </Link>
         <Link
-          href="/brands"
+          href="/dashboard/admin"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname.startsWith("/brands") ? "text-foreground" : "text-foreground/60"
@@ -45,7 +45,7 @@ export function MainNav() {
           For Brands
         </Link>
         <Link
-          href="/creators"
+          href="/dashboard/creator/earnings"
           className={cn(
             "transition-colors hover:text-foreground/80",
             pathname.startsWith("/creators") ? "text-foreground" : "text-foreground/60"
