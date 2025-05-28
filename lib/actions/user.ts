@@ -39,6 +39,16 @@ export async function getUserByClerkId(clerkId: string): Promise<IUser | null> {
   
     await connectToDatabase();
   return User.findOne({ clerkId });
+}
 
+export async function updateUser(clerkId: string, updates: Partial<ICreateUser>): Promise<IUser | null> {
+  await connectToDatabase();
+  const updatedUser = await User.findOneAndUpdate({ clerkId }, updates, { new: true });
+  return updatedUser;
+}
 
+export async function deleteUser(clerkId: string): Promise<{ success: boolean }> {
+  await connectToDatabase();
+  const res = await User.deleteOne({ clerkId });
+  return { success: res.deletedCount === 1 };
 }
