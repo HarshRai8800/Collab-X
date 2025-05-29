@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
   ArrowUpRight, 
   TrendingUp, 
@@ -21,10 +21,37 @@ import {
 import { cn } from '@/lib/utils';
 import { EarningsChart } from '@/components/dashboard/creator/earnings-chart';
 
-
+import { createUser,updateUser,deleteUser,getUserByClerkId } from '@/lib/actions/user';
 export default function EarningsPage() {
   const [timeframe, setTimeframe] = useState('6months');
+
+  // // useEffect(()=>{
   
+  // //   const fetchData = async () => {
+  // //     try {
+  // //       console.log('Fetching earnings data...');
+  // //     const d =   await createUser({
+  // //   clerkId: 'clerk_test_123',
+  // //   name: 'Jane Doe',
+  // //   email: 'jane@example.com',
+  // //   role: 'creator',
+  // //   profileImage: 'https://example.com/profile.jpg',
+  // //   loginMethod: 'google'
+  
+  // // });
+  // console.log(d)
+  //   // setTimeout(async()=>{
+  //   //  const data = await getUserByClerkId('clerk_test_123');
+  //   //   console.log(data)
+  //   // },2000)
+  //     } catch (error) {
+  //       console.error('Error fetching earnings data:', error);  
+  //     }
+  //   };
+  //   fetchData();
+  // },[])
+
+
   return (
     <div className="space-y-8">
       <header>
